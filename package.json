@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "ds-test": "github:dapphub/ds-test#e282159d5170298eb2455a6c05280ab5a73a4ef0",
+    "forge-std": "github:foundry-rs/forge-std#v1.7.5",
+    "prettier": "^2.8.7",
+    "solhint": "^3.4.1"
+  },
+  "scripts": {
+    "lint": "bun run lint:sol && bun run prettier:check",
+    "lint:sol": "forge fmt --check && bun solhint {script,src,test}/**/*.sol",
+    "prettier:check": "prettier --check **/*.{json,md,yml} --ignore-path=.prettierignore",
+    "prettier:write": "prettier --write **/*.{json,md,yml} --ignore-path=.prettierignore"
+  }
+}
