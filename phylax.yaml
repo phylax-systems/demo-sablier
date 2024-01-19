@@ -1,0 +1,38 @@
+alerts:
+  - name: mainnet-alert
+    on:
+      - rule: 'origin == hash "mainnet"'
+        interval: 5
+    foundryProjectRootPath: alerts
+    foundryProfile: mainnet
+  - name: mainnet-alert
+    on:
+      - rule: 'origin == hash "arbitrum"'
+        interval: 5
+    foundryProjectRootPath: alerts
+    foundryProfile: arbitrum
+  - name: mainnet-alert
+    on:
+      - rule: 'origin == hash "optimism"'
+        interval: 5
+    foundryProjectRootPath: alerts
+    foundryProfile: optimism
+watchers:
+  - name: mainnet
+    chain: mainnet
+    ethRpc: "${ETH_RPC}"
+  - name: optimism
+    chain: optimism
+    ethRpc: "${OPTIMISM_ETH_RPC}"
+  - name: arbitrum
+    chain: arbitrum
+    ethRpc: "${ARBITRUM_ETH_RPC}"
+actions:
+  - name: slack
+    on:
+      - rule: 'type == "alert_firing"'
+        interval: 1
+    target: "${SLACK_WEBHOOK}"
+    platform: slack
+    title: "Phylax Health Alert"
+    description: "Some solidity tests reverted: \n ${event.body.failed_tests}"
