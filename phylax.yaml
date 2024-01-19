@@ -27,12 +27,12 @@ watchers:
   - name: arbitrum
     chain: arbitrum
     ethRpc: "${ARBITRUM_ETH_RPC}"
-actions:
-  - name: slack
-    on:
-      - rule: 'type == "alert_firing"'
-        interval: 1
-    target: "${SLACK_WEBHOOK}"
-    platform: slack
-    title: "Phylax Health Alert"
-    description: "Some solidity tests reverted: \n ${event.body.failed_tests}"
+# actions:
+#   - name: slack
+#     on:
+#       - rule: 'type == "alert_firing"'
+#         interval: 1
+#     target: "${SLACK_WEBHOOK}"
+#     platform: slack
+#     title: "Phylax Health Alert"
+#     description: "Some solidity tests reverted: \n ${event.body.failed_tests}"
