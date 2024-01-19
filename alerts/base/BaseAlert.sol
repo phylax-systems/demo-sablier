@@ -26,16 +26,11 @@ abstract contract BaseSablierAlert is Alert {
         // check if the previous balance is 30% less than the current balance
         bool alert = currentBalance * 70 / 100 > previousBalance;
 
-        string memory tokenSymbol = IERC20Like(token).symbol();
-
-        string memory hasOrHasNot = alert ? " has " : " has not ";
-
-        string memory s =
-            string.concat("The balance of ", tokenSymbol, hasOrHasNot, "decreased by 30% in the last 5 blocks");
-
-        console2.log(s);
-
-        assertTrue(true);
+        if (alert) {
+            string memory tokenSymbol = IERC20Like(token).symbol();
+            string memory s = string.concat("The balance of ", tokenSymbol, "has decreased by 30% in the last 5 blocks");
+            revert(s);
+        }
     }
 
     function test_StablecoinAlert(address token, address sablierContract) internal {
@@ -61,15 +56,12 @@ abstract contract BaseSablierAlert is Alert {
         // check if there has been deposited more than 50k
         bool alert = 10 ** decimals * 50_000 < depositedSum;
 
-        string memory tokenSymbol = IERC20Like(token).symbol();
-        string memory hasOrHasNot = alert ? " has " : " has not ";
-
-        string memory s =
-            string.concat("There", hasOrHasNot, "been deposited more than 50k ", tokenSymbol, " in the last 5 blocks");
-
-        console2.log(s);
-
-        assertTrue(true);
+        if (alert) {
+            string memory tokenSymbol = IERC20Like(token).symbol();
+            string memory s =
+                string.concat("There has been deposited more than 50k ", tokenSymbol, " in the last 5 blocks");
+            revert(s);
+        }
     }
 
     function test_StablecoinsAlert(address sablierContract) internal {
