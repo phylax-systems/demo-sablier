@@ -5,13 +5,13 @@ alerts:
         interval: 5
     foundryProjectRootPath: alerts
     foundryProfile: mainnet
-  - name: mainnet-alert
+  - name: arbitrum-alert
     on:
       - rule: 'origin == hash "arbitrum"'
         interval: 5
     foundryProjectRootPath: alerts
     foundryProfile: arbitrum
-  - name: mainnet-alert
+  - name: optimism-alert
     on:
       - rule: 'origin == hash "optimism"'
         interval: 5
