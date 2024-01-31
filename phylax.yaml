@@ -20,7 +20,7 @@ alerts:
 watchers:
   - name: mainnet
     chain: mainnet
-    ethRpc: "${ETH_WS_RPC}"
+    ethRpc: "${ETH_RPC}"
   - name: optimism
     chain: optimism
     ethRpc: "${OPTIMISM_WS_ETH_RPC}"
