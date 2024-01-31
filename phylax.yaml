@@ -20,13 +20,13 @@ alerts:
 watchers:
   - name: mainnet
     chain: mainnet
-    ethRpc: "${ETH_RPC}"
+    ethRpc: "${ETH_WS_RPC}"
   - name: optimism
     chain: optimism
-    ethRpc: "${OPTIMISM_ETH_RPC}"
+    ethRpc: "${OPTIMISM_WS_ETH_RPC}"
   - name: arbitrum
     chain: arbitrum
-    ethRpc: "${ARBITRUM_ETH_RPC}"
+    ethRpc: "${ARBITRUM_WS_ETH_RPC}"
 # actions:
 #   - name: slack
 #     on:
